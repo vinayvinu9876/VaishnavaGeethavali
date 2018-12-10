@@ -1,5 +1,6 @@
 import React,{Component} from 'react';
-import {Alert,View,TouchableNativeFeedback,Text,StyleSheet,Image,BackHandler} from 'react-native';
+import {Alert,View,Text,StyleSheet,Image,BackHandler} from 'react-native';
+import {TouchableNativeFeedback,} from 'react-native';
 import {Actions} from 'react-native-router-flux';
 
 export default class Language_Menu extends Component{
@@ -48,47 +49,47 @@ componentWillUnmount() {
 				<View style={styles.menu}>
 
 					<View style={styles.menu_row}>
-						<LangMenu name={"English"} handlePress={()=>Actions.SongListEnglish()} /> 
-						<LangMenu name={"हिंदी"} handlePress={()=>Actions.SongListHindi()} />	
-						<LangMenu name={"മലയാളം"} handlePress={()=>Actions.SongListMalayalam()} />						
+						<LangMenu name={"English"} english_verse="(English)" handlePress={()=>Actions.SongListEnglish()} /> 
+						<LangMenu name={"हिंदी"} english_verse="(Hindi)" handlePress={()=>Actions.SongListHindi()} />	
+						<LangMenu name={"മലയാളം"} english_verse="(Malayalam)" handlePress={()=>Actions.SongListMalayalam()} />						
 					</View>
 
 					<View style={styles.menu_row}>
-						<LangMenu name={"অসমীয়া"} handlePress={()=>Actions.SongListAssamese()} />
-						<LangMenu name={"ಕನ್ನಡ"} handlePress={()=>Actions.SongListKannada()} />
-						<LangMenu name={"తెలుగు"} handlePress={()=>Actions.SongListTelugu()} />
+						<LangMenu name={"অসমীয়া"} english_verse="(Assamese)" handlePress={()=>Actions.SongListAssamese()} />
+						<LangMenu name={"ಕನ್ನಡ"} english_verse="(Kannada)" handlePress={()=>Actions.SongListKannada()} />
+						<LangMenu name={"తెలుగు"} english_verse="(Telugu)" handlePress={()=>Actions.SongListTelugu()} />
 					</View>
 
 					<View style={styles.menu_row}>
-						<LangMenu name={"ગુજરાતી"} handlePress={()=>Actions.SongListGujarathi()} />
-						<LangMenu name={"සිංහල"} handlePress={()=>Actions.SongListSinhala()} />	
-						<LangMenu name={"中文"} handlePress={()=>Actions.SongListChinese()} />
+						<LangMenu name={"ગુજરાતી"} english_verse="(Gujarathi)" handlePress={()=>Actions.SongListGujarathi()} />
+						<LangMenu name={"සිංහල"} english_verse="(Sinhala)" handlePress={()=>Actions.SongListSinhala()} />	
+						<LangMenu name={"中文"} english_verse="(Chinese)" handlePress={()=>Actions.SongListChinese()} />
 					</View>
 
 
 					<View style={styles.menu_row}>
-						<LangMenu name={"日本人"} handlePress={()=>Actions.SongListJapanese()} />
-						<LangMenu name={"বাঙালি"} handlePress={()=>Actions.SongListBengali()} />
-						<LangMenu name={"한국어"}  handlePress={()=>Actions.SongListKorean()}/> 						
+						<LangMenu name={"日本人"} english_verse="(Japanese)" handlePress={()=>Actions.SongListJapanese()} />
+						<LangMenu name={"বাঙালি"} english_verse="(Bengali)" handlePress={()=>Actions.SongListBengali()} />
+						<LangMenu name={"한국어"}  english_verse="(Korean)" handlePress={()=>Actions.SongListKorean()}/> 						
 					</View>
 
 					<View style={styles.menu_row}>
-						<LangMenu name={"Ελληνικά"} handlePress={()=>Actions.SongListGreek()} />
-						<LangMenu name={"ਪੰਜਾਬੀ"} handlePress={()=>Actions.SongListPunjabi()} />
-						<LangMenu name={"Кыргызча"} handlePress={()=>Actions.SongListKrygz()} />
+						<LangMenu name={"Ελληνικά"} english_verse="(Greek)" handlePress={()=>Actions.SongListGreek()} />
+						<LangMenu name={"ਪੰਜਾਬੀ"} english_verse="(Punjabi)" handlePress={()=>Actions.SongListPunjabi()} />
+						<LangMenu name={"Кыргызча"} english_verse="(krygz)" handlePress={()=>Actions.SongListKrygz()} />
 					</View>
 
 					<View style={styles.menu_row}>
-						<LangMenu name={"русский"} handlePress={()=>Actions.SongListRussian()} />
-						<LangMenu name={"ไทย"} handlePress={()=>Actions.SongListThai()} />					
-						<LangMenu name={"தமிழ்"} handlePress={()=>Actions.SongListTamil()} />					
+						<LangMenu name={"русский"} english_verse="(Russian)" handlePress={()=>Actions.SongListRussian()} />
+						<LangMenu name={"ไทย"} english_verse="(Thai)" handlePress={()=>Actions.SongListThai()} />					
+						<LangMenu name={"தமிழ்"} english_verse="(Tamil)" handlePress={()=>Actions.SongListTamil()} />					
 					</View>				
 										
 					
 					<View style={styles.menu_row}>
-						<LangMenu name={"עברית"} handlePress={()=>Actions.SongListHebrew()} />
-						<LangMenu name={" བོད་པ་"} handlePress={()=>Actions.SongListTibetan()} />
-						<LangMenu name={"ଓଡ଼ିଆ "} handlePress={()=>Actions.SongListOdiya()} />
+						<LangMenu name={"עברית"} english_verse="(Hebrew)" handlePress={()=>Actions.SongListHebrew()} />
+						<LangMenu name={" བོད་པ་"} english_verse="(Tibetan)" handlePress={()=>Actions.SongListTibetan()} />
+						<LangMenu name={"ଓଡ଼ିଆ"} english_verse="(Odiya)" handlePress={()=>Actions.SongListOdiya()} />
 					</View>
 					
 				</View>
@@ -110,6 +111,7 @@ class LangMenu extends Component{
 					<TouchableNativeFeedback onPress={this.props.handlePress}>
 						<View style={styles.menu_item}>
 							<Text style={styles.menu_text}>{this.props.name}</Text>
+							<Text style={styles.english_vers}>{this.props.english_verse}</Text>
 						</View>
 					</TouchableNativeFeedback>
 				</View>
@@ -142,11 +144,12 @@ const styles=StyleSheet.create({
 
 	},
 	heading:{
-		fontWeight: 'bold',
+		fontWeight: 'normal',
 		fontSize: 25,
 		alignSelf: 'center',
 		marginLeft: '2%',
 		color:'rgb(255, 124, 0)',
+		fontFamily: 'DonegalOne-Regular',
 
 	},
 	
@@ -157,6 +160,7 @@ const styles=StyleSheet.create({
 		marginLeft: '5%',
 		
 	},
+
 	menu:{
 		flex:1,
 		
@@ -178,13 +182,19 @@ const styles=StyleSheet.create({
 		maxHeight: '100%',
 	},
 	menu_text:{
-		margin:"20%",
-		
+		margin:"7%",		
 		textAlign: 'center', 
 		color:'rgb(255, 103, 0)',
 		fontSize: 15,
+		fontFamily: 'DonegalOne-Regular',
 
 
+	},
+	english_vers:{
+		fontSize:12,
+		color:'lightgrey',
+		textAlign:'center',
+		fontFamily: 'DonegalOne-Regular', 
 	},
 	bg_safforon:{
 		backgroundColor: '#ffb366',

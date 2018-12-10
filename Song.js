@@ -1,11 +1,13 @@
 import React,{Component} from 'react';
 import {Text,StyleSheet,View,Image,ScrollView,BackHandler,Title} from 'react-native';
 import {Actions} from 'react-native-router-flux';
+import PinchZoomView from 'react-native-pinch-zoom-view';
 
 
 
 
 export default class Song extends Component{
+  
 
 
    handle_back_press=()=>
@@ -25,49 +27,88 @@ export default class Song extends Component{
 
 
 
-	render(){
-		return(
-		<View style={styles.container} >
+  render(){
+
+    if(this.props.isEnglish){
+
+     formatted_song=this.props.lyrics.map((a,i)=>{  
+
+        console.log(a);
+        console.log(i);  
+     
+        return <Para key={i} para={a} />
+      
+    });
+   }
 
 
-      		<View style={styles.header}>
-        		<Image style={styles.logo} source={require('./prabhupad1.jpg')} />
-        		<View style={{flexDirection: 'column'}}>
-        			<Text style={styles.menu_text}>Vaishnava Geethavali</Text>
-        			<Text style={styles.title} ellipsizeMode='tail' numberOfLines={1}>{this.props.title}</Text>
-      			</View>
-      		</View>
-      	
+    return(
+    <View style={styles.container} >
 
-      	
-      	        <View style={styles.song_container}>
-      	        	<View style={styles.song_title_cont}>
-      	        		<Text style={styles.song_title_text}>{this.props.title}</Text>
-      	        	</View>
-      	        <ScrollView style={styles.contentContainer}>
-      	        	<View style={styles.song_lyrics}>
-      	        		<Text style={styles.lyrics_text}>
 
+          <View style={styles.header}>
+            <Image style={styles.logo} source={require('./prabhupad1.jpg')} />
+            <View style={{flexDirection: 'column'}}>
+              <Text style={styles.menu_text}>Vaishnava Geethavali</Text>
+              <Text style={styles.title} ellipsizeMode='tail' numberOfLines={1}>{this.props.title}</Text>
+            </View>
+          </View>
+        
+
+        
+                <View style={styles.song_container}>
+                  <View style={styles.song_title_cont}>
+                    <Text style={styles.song_title_text}>{this.props.title}</Text>
+                  </View>
+
+                <ScrollView style={styles.contentContainer}>
+                   
+                    <View style={[styles.song_lyrics,]}>
+                    
+                        
                           {
-                            this.props.lyrics
+                            this.props.isEnglish 
+                            &&
+                            formatted_song
 
                           }
+                          {
 
-
-      	        		</Text>
-      	        	</View>
-      	        </ScrollView>
-      	        </View>
+                            !this.props.isEnglish
+                            &&
+                            <Para para={this.props.lyrics} />
+                          }
+                                                  
+                    
+                    </View>
+                  
+                </ScrollView>
+                
+                </View>
       
       </View>
-		)
-	}
+    )
+  }
+}
+
+class Para extends Component{
+  render(){
+    return(
+      <View>
+        
+            <Text style={styles.lyrics_text}>{this.props.para}</Text>
+        
+          <View style={{flex:1,height: '50%',width: '100%'}} />
+        
+      </View>
+      )
+  }
 }
 
 const styles = StyleSheet.create({
   container:{
     flex:1,
-
+    backgroundColor: 'white'
   },
   header:{
     flex:1,
@@ -88,48 +129,56 @@ const styles = StyleSheet.create({
     color:'white',
     marginTop: '3%',
     marginLeft: '5%',
-    fontWeight: 'bold' ,
+    fontWeight: 'normal' ,
+    fontFamily: 'DonegalOne-Regular',
   },
   contentContainer: {
-  	flex:1,
+    flex:1,
     
   },
 
   title:{
-  	flex: 1,
-  	flexShrink: 1 ,
-  	marginLeft: '5%',
-  	color:'white',
-
+    flex: 1,
+    flexGrow: 1 ,
+    marginLeft: '5%',
+    marginTop: '3%',
+    color:'white',
+    fontFamily: 'DonegalOne-Regular',
   },
   song_container:{
-  	flex:1,
+    flex:1,
 
   },
   song_title_cont:{
-  	flex:1,
-  	maxWidth: '100%',
-  	maxHeight: '15%',
+    flex:1,
+    maxWidth: '100%',
+    maxHeight: '20%'
 
   },
   song_title_text:{
-  	fontSize: 30,
-  	color:"green",
-  	textAlign: 'center' ,
-  	marginTop: '3%',
-  	fontWeight: 'normal',  
+    fontSize: 30,
+    color:"green",
+    textAlign: 'center' ,
+    marginTop: '3%',
+    fontWeight: 'normal', 
+    fontFamily: 'DonegalOne-Regular', 
   },
   song_lyrics:{
-  	flex:1,
-  	maxWidth: '100%',
-  	
+    flex:2,
+    maxWidth: '100%',
+    justifyContent: 'space-between', 
+    
 
   },
   lyrics_text:{
-  	color:"blue",
-  	fontSize: 15,
-  	textAlign:'center',
-  	marginTop: '2%',
+    color:"blue",
+    flex:1,
+    textAlign:'center',
+    marginTop: '2%',
+    fontSize: 17,
+    lineHeight: 30,
+    fontFamily: 'DonegalOne-Regular',
+
 
     }
 

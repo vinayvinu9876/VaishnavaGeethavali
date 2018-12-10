@@ -14,7 +14,7 @@ export default class Loading extends Component{
 	render(){
 		return(
 			<View style={styles.container}>
-				<Image source={require('./prabhupad1.jpg')} style={styles.logo}/>
+				<Image source={require('./prabhupad2v1.png')} style={styles.logo}/>
 				<Text style={styles.name}>Vaishnava Gitavali</Text>
 			</View>
 		)
@@ -28,17 +28,24 @@ const styles=StyleSheet.create({
 	container:{
 		flex:1,
 		alignItems: 'center',
-
+		backgroundColor: 'white',
 	},
 	logo:{
 		alignSelf:  'center',
-		borderRadius: 200, 
+		borderRadius: 300, 
 		maxWidth: '100%',
-		marginTop: '40%',
+		maxHeight: '60%',
+		marginTop: '20%',
 	},
 	name:{
-		marginTop: '10%',
-		fontWeight: 'bold',
-		fontSize: 30, 
+		flex:1,
+		marginTop: '30%',
+		fontWeight: 'normal',
+		fontFamily: 'DonegalOne-Regular',
+		fontSize: 30,
+		color:'rgb(255, 103, 0)',
+		alignSelf:  'center',
+		textAlign: 'center',  
+
 	}
 });
