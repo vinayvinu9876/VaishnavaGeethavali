@@ -41,7 +41,7 @@ export default class SongList extends Component{
 
       <View style={styles.header}>
         <Image style={styles.logo} source={require('./prabhupad1.jpg')} />
-        <Text style={styles.menu_text}>Vaishnava Geethavali</Text>
+        <Text style={styles.menu_text}>Vaishnava Gitavali</Text>
 
       </View>
       <ScrollView style={styles.contentContainer}>
@@ -77,11 +77,11 @@ const styles = StyleSheet.create({
 
   },
   menu_text:{
-    fontSize:20,
+    fontSize:25,
     color:'white',
     marginTop: '6%',
     marginLeft: '3%',
-    fontWeight: 'bold' ,
+    //fontWeight: 'normal' ,
     fontFamily: 'DonegalOne-Regular',
   },
   contentContainer: {

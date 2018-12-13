@@ -123,11 +123,7 @@ export default class SongListEnglish extends Component{
     });
 
 
-       U_list=song_data.map((a,i)=>{    
-      if(song_data[i].title[0]=="U"){        
-        return <Item key={i} item={song_data[i].title} nxt={()=>Actions.Song({title:song_data[i].title,lyrics:song_data[i].song,isEnglish:true})}/>
-      }
-    });
+      
 
         V_list=song_data.map((a,i)=>{    
       if(song_data[i].title[0]=="V"){        
@@ -151,7 +147,7 @@ export default class SongListEnglish extends Component{
 
       <View style={styles.header}>
         <Image style={styles.logo} source={require('./prabhupad1.jpg')} />
-        <Text style={styles.menu_text}>Vaishnava Geethavali</Text>
+        <Text style={styles.menu_text}>Vaishnava Gitavali</Text>
 
       </View>
       <ScrollView style={styles.contentContainer}>
@@ -188,8 +184,6 @@ export default class SongListEnglish extends Component{
          {S_list}
       <Title title={'T'} />
           {T_list}
-      <Title title={'U'} />
-          {U_list}
       <Title title={'V'} />
           {V_list}
       </ScrollView>
@@ -221,11 +215,12 @@ const styles = StyleSheet.create({
 
   },
   menu_text:{
-    fontSize:20,
+    fontSize:25,
     color:'white',
     marginTop: '6%',
     marginLeft: '3%',
-    fontWeight: 'bold' ,
+    fontWeight: 'normal' ,
+    fontFamily: 'DonegalOne-Regular',
   },
   
   contentContainer: {
@@ -978,3 +973,6 @@ song:['\njaya rādhe, jaya kṛṣṇa, jaya vṛndāvan\nśrī govinda, gopīn�
       'jaya dwija-patnī, jaya nāga-kanyā-gaṇ\nbhaktite jāhārā pāilo govinda-caraṇ',]
 },
 ]
+
+
+

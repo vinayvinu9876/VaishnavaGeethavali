@@ -49,7 +49,7 @@ export default class Song extends Component{
           <View style={styles.header}>
             <Image style={styles.logo} source={require('./prabhupad1.jpg')} />
             <View style={{flexDirection: 'column'}}>
-              <Text style={styles.menu_text}>Vaishnava Geethavali</Text>
+              <Text style={styles.menu_text}>Vaishnava Gitavali</Text>
               <Text style={styles.title} ellipsizeMode='tail' numberOfLines={1}>{this.props.title}</Text>
             </View>
           </View>

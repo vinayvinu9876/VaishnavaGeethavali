@@ -11,7 +11,6 @@ export default class SongListJapanese extends Component{
   render(){
 
     
-
     return(
 
       <View style={{flex:1,}}>
