@@ -16,7 +16,6 @@ export default class SongListKannada extends Component{
 
       <View style={{flex:1,}}>
          <SongList song_data={song_data} />
-
       </View>
     )
   }
